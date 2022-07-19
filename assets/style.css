@@ -57,24 +57,19 @@ header {
     color: white;
 }
 
-.lowRiskUVI {
+.favorableUVI {
     background-color: rgb(132, 212, 132);
 }
 
-.moderateRiskUVI {
-    background-color: rgb(238, 238, 163);
+.moderateUVI {
+    background-color: rgb(231, 231, 36);
     color: black;
 }
 
-.moderateHighRiskUVI {
-    background-color: rgb(220, 194, 147);
-    color: black
+.highUVI{
+    background-color: rgb(236, 161, 20);
 }
 
-.highRiskUVI {
-    background-color: rgb(255, 0, 0);
-}
-
-.extremeRiskUVI {
-    background-color: rgb(106, 10, 10);
+.severeUVI {
+    background-color: rgb(237, 5, 5);
 }

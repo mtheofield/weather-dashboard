@@ -22,19 +22,18 @@ function queryWeatherData(citiesName) {
     })
     .then(cityData => {
         if (cityData.message === "please enter a city") {
-            alert("Enter a city");
             return;
         };
         saveSearchHistory(citiesName);
 
-        var latitude = cityData.coord.lat
-        var longitude = cityData.coord.lon
+        var lat = cityData.coord.lat
+        var lon = cityData.coord.lon
         var weatherIcon = cityData.weather[0].icon
         var weatherTypeIcon = document.getElementById('weatherTypeIcon');
         
         weatherTypeIcon.setAttribute('src', `https://openweathermap.org/img/wn/${weatherIcon}@2x.png`)
 
-        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=minutely,hourly,alerts&appid=8bc0c59529456976b25bd3e2e58f2ccd`)
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly,alerts&appid=8bc0c59529456976b25bd3e2e58f2ccd`)
         .then(weatherData => {
             return weatherData.json();
         })
@@ -46,20 +45,17 @@ function queryWeatherData(citiesName) {
             var UVI = Math.round(weatherData.current.uvi);
 
             if (UVI < 3) {
-                document.getElementById('UVI').classList.remove("moderateRiskUVI", "moderateHighRiskUVI", "highRiskUVI", "extremeRiskUVI");
-                document.getElementById('UVI').classList.add("lowRiskUVI");
-            } else if (UVI >=3 && UVI < 5) {
-                document.getElementById('UVI').classList.remove("lowRiskUVI", "moderateHighRiskUVI", "highRiskUVI", "extremelRiskUVI");
-                document.getElementById('UVI').classList.add("moderateRiskUVI");
-            } else if (UVI >=5 && UVI < 7) {
-                document.getElementById('UVI').classList.remove("lowRiskUVI", "moderateRiskUVI", "highRiskUVI", "extremelRiskUVI");
-                document.getElementById('UVI').classList.add("moderateHighRiskUVI");
+                document.getElementById('UVI').classList.remove("moderateUVI", "highUVI", "severeUVI");
+                document.getElementById('UVI').classList.add("favorableUVI");
+            } else if (UVI >=3 && UVI < 7) {
+                document.getElementById('UVI').classList.remove("favorableUVI", "highUVI", "severeUVI");
+                document.getElementById('UVI').classList.add("moderateUVI");
             } else if (UVI >=7 && UVI <= 10) {
-                document.getElementById('UVI').classList.remove("lowRiskUVI", "moderateRiskUVI", "moderateHighRiskUVI","extremelRiskUVI");
-                document.getElementById('UVI').classList.add("highRiskUVI");
+                document.getElementById('UVI').classList.remove("favorableUVI", "moderateUVI", "severeUVI");
+                document.getElementById('UVI').classList.add("highUVI");
             } else {
-                document.getElementById('UVI').classList.remove("lowRiskUVI", "moderateRiskUVI", "moderateHighRiskUVI", "highRiskUVI");
-                document.getElementById('UVI').classList.add("extremelRiskUVI");
+                document.getElementById('UVI').classList.remove("favorableUVI", "moderateUVI", "highUVI");
+                document.getElementById('UVI').classList.add("severeUVI");
             }
 
             document.getElementById('searchedCityName').innerHTML = '' + citiesName + currentDate + '';
@@ -78,8 +74,8 @@ function getSearchHistory() {
     $('#searchHistoryBtns').empty();
     if (searchHistory.length > 0) {
         for(let i = 0; i < searchHistory.length; i++) {
-            let historyItem = $('<button>').attr('class', 'btn btn-secondary searchHistoryBtns').text(searchHistory[i]);
-            $('#searchHistoryBtns').append(historyItem);
+            let historyCity = $('<button>').attr('class', 'btn btn-secondary searchHistoryBtns').text(searchHistory[i]);
+            $('#searchHistoryBtns').append(historyCity);
         }
     }
 };
