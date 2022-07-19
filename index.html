@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="assets/style.css">
+    <title> Weather App</title>
+</head>
+
+<body>
+    <header class="text-center">
+        <h2 class="content-title">Weather Dashboard</h2>
+    </header>
+    <main>
+        <div class="row">
+            <div class="flex-column col-3">
+                <h3 class="card-header">Search for a city</h3>
+                <form id="city-searched" class="card-body">
+                    <input class="form-input" type="text" name="city" id="searchedCity"
+                        placeholder="Name of the city" /><br />
+                    <button type="submit" id="city-search-btn" class="btn search-btn">Search</button>
+                </form>
+                <div id="searchHistoryBtns"></div>
+            </div>
+            <div class="flex-column col-9">
+                <div class="row">
+                    <div id="weather-today" class="weather-today">
+                        <h2 id="searchedCityName"></h2>
+                        <img id="weatherTypeIcon" />
+                        <h5 id="temperature"></h5>
+                        <h5 id="wind"></h5>
+                        <h5 id="humidity"></h5>
+                        <h5>
+                            <span id="UVI" class="badge badge-pill badge-secondary"></span>
+                        </h5>
+                    </div>
+                </div>
+                <div class="flex-column">
+                    <h3>5 day forecast</h3>
+                </div>
+                <div id="fiveDayContainer" class="row">
+                    <div class="text-center">
+                        <h4>Enter a city name to find out the forecast</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="assets/script.js"></script>
+    </main>
+</body>
+</html>

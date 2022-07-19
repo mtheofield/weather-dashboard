@@ -1,0 +1,80 @@
+* {
+    padding: 5px;
+}
+
+:root {
+    --primary-color: #2badd4;
+    --secondary-color: #2c4093;
+    --tertiary-color: #aeaeae;
+}
+
+.column {
+    float: left;
+    width: 12%;
+    padding: 0 10px;
+}
+
+.h2.content-title {
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+#city-searched {
+    background-color: var(--secondary-color);
+    border: 3px;
+    border-color: black;
+}
+
+.card, .list-group, .list-group-item {
+    background-color: var(--tertiary-color);
+}
+
+.searchHistoryBtns {
+    width: 100%;
+    margin: 4px;
+    background-color: var(--primary-color);
+}
+
+.search-btn {
+    margin: auto;
+    background-color: var(--tertiary-color);
+    margin: auto;
+}
+
+#city-search-btn:hover {
+    opacity: 1;
+}
+
+.weather-today {
+    font-size: 20px;
+}
+
+header {
+    width: auto;
+    text-align: center;
+    margin: 0 auto 25px auto;
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.lowRiskUVI {
+    background-color: rgb(132, 212, 132);
+}
+
+.moderateRiskUVI {
+    background-color: rgb(238, 238, 163);
+    color: black;
+}
+
+.moderateHighRiskUVI {
+    background-color: rgb(220, 194, 147);
+    color: black
+}
+
+.highRiskUVI {
+    background-color: rgb(255, 0, 0);
+}
+
+.extremeRiskUVI {
+    background-color: rgb(106, 10, 10);
+}
